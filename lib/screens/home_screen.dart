@@ -23,6 +23,8 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon( Icons.search_outlined ),
+            //el showSearch ya esta implementado en flutter. solo hay que pasarle el searchDelegate
+            // un delegate no es mas que un widget o una clase que cumple ciertas condiciones
             onPressed: () => showSearch(context: context, delegate: MovieSearchDelegate() ),
           )
         ],
@@ -37,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             // Slider de películas
             MovieSlider(
               movies: moviesProvider.popularMovies,// populares,
-              title: 'Populares', // opcional
+              title: 'Populares', // opcionald
               onNextPage: () => moviesProvider.getPopularMovies(),
             ),
             
