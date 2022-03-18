@@ -5,45 +5,64 @@ import 'package:peliculas/models/models.dart';
 import 'package:provider/provider.dart';
 import 'package:peliculas/providers/movies_provider.dart';
 
+
+// extiende de SearchDelegate
+
+// si se pone el nombre de la clase, ctrol+"." implementar los 4 overrides  faltantes
 class MovieSearchDelegate extends SearchDelegate {
 
+
+  //  se pueden sobreescribir variables!!! en este caso para cambiar a que el texto sea en español
   @override
   String get searchFieldLabel => 'Buscar película';
 
+
+  // el sistema solo agrega los 4 metodos. el primero devuelve una lista de widgets. los otros 3, un widget
+
+  // override 1: Action
   @override
   List<Widget> buildActions(BuildContext context) {
+
+      //devuelve lista de widgets (ver corchetes). en este caso, solo un widget: un boton que limpia la variable "query" de la clase "SearchDelegate"
       return [
         IconButton(
           icon: Icon( Icons.clear ),
-          onPressed: () => query = '',
+          onPressed: () => query = '', // variable query ya existente en la clase SearchDelegate
         )
       ];
   }
   
+
+   // override 2: Leading . aqui se pone el boton para cerrar la busqueda. 
     @override
     Widget buildLeading(BuildContext context) {
       return IconButton(
         icon: Icon( Icons.arrow_back ),
         onPressed: () {
-          close(context, null );
+          close(context, null ); // metodo close ya existente en la clase SearchDelegate
         },
       );
     }
   
+
+    // override 3: Results
     @override
     Widget buildResults(BuildContext context) {
       
-      return Text('buildResults');
+      return Text('no implementado');
     }
 
+    //widget de fernando para devolver un container con solo un icono cuando no hay query de busqueda
     Widget _emptyContainer() {
+      //recordar: siempre debe devolver un widget, en este caso un container (casi) vacio
       return Container(
           child: Center(
-            child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 130, ),
+            child: Icon( Icons.movie_creation_outlined, color: Colors.indigo[800], size: 130, ),
           ),
         );
     }
   
+     // override 4: Suggestions
     @override
     Widget buildSuggestions(BuildContext context) {
     

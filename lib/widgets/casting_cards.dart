@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:peliculas/models/models.dart';
 import 'package:peliculas/providers/movies_provider.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +18,7 @@ class CastingCards extends StatelessWidget {
       future: moviesProvider.getMovieCast(movieId),
       builder: ( _, AsyncSnapshot<List<Cast>> snapshot) {
         
+        // si aun ya ha acabado el Future devuelve un indicador y sale
         if( !snapshot.hasData ) {
           return Container(
             constraints: BoxConstraints(maxWidth: 150),

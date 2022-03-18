@@ -11,6 +11,7 @@ class DetailsScreen extends StatelessWidget {
     final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
 
     return Scaffold(
+      appBar: AppBar(title: Text('abc'),),
       body: CustomScrollView(
         slivers: [
           _CustomAppBar( movie ),
