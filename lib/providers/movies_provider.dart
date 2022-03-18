@@ -117,3 +117,11 @@ class MoviesProvider extends ChangeNotifier {
 
 
 }
+
+
+    // estoo tarda cierto tiempo, por eso el await
+    //final resp = await http.get(url);
+    
+    // la respuesta no contiene solo la info que queremos, hay codigos de respuesta y
+    // mas cosas que ahora no interesan. asi que recogemos solo la 'data' con el
+    // json.decode

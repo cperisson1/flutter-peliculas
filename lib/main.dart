@@ -8,6 +8,8 @@ void main() => runApp(AppState());
 
 //Clase global de alcance a toda la app, por eso se pone aqui, en el main
 //Es el primer widget que se crea
+
+
 // todos los widgets a partir de aqui tendran acceso a PeliculasProvider
 class AppState extends StatelessWidget {
 
